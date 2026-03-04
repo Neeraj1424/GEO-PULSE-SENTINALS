@@ -1,67 +1,75 @@
-# OPEN-PLANT-DOCTOR
-AI-powered plant disease detection system using MERN + l machine earning to identify crop diseases, estimate severity, and suggest treatments for farmers.  Alternative (slightly stronger positioning):  Open-source AI platform for plant disease detection with severity analysis and treatment recommendations, built using MERN and machine  learning
-🌱 OpenPlant Doctor
-AI-Powered Plant Disease Detection System (MERN Stack)
-📌 Overview
+🌍 GEOPULSE
 
-OpenPlant Doctor is a MERN-based web application that helps farmers detect plant diseases using a simple leaf image.
+Open Global Risk & Impact Dashboard
 
-The platform allows users to:
+GeoPulse is an open-source geospatial dashboard that visualizes global conflict events, natural disasters, market volatility, and trade disruptions on a single interactive map.
 
-Upload a plant leaf image
+The project aggregates structured datasets, normalizes them into a common format, and calculates a regional risk score to help users understand how different global events affect specific regions.
 
-Detect plant type and disease
+The system is designed to be modular, self-hostable, and easy to extend with new data sources.
 
-Estimate severity level
+Overview
 
-Receive organic and chemical treatment recommendations
+Information about global crises is scattered across multiple platforms such as conflict databases, disaster monitoring systems, financial feeds, and trade reports.
 
-View preventive measures
+GeoPulse brings these signals together into a single dashboard that provides a geographic overview of global risk.
 
-The system is built with scalability, simplicity, and real-world agricultural usability in mind.
+The platform focuses on:
 
-🎯 Problem Statement
+Clear geospatial visualization
 
-Farmers often struggle to identify plant diseases early. Misdiagnosis can lead to:
+Modular architecture
 
-Crop damage
+Structured datasets
 
-Overuse of pesticides
+Open-source extensibility
 
-Reduced yield
+Core Idea
 
-Financial loss
+GeoPulse converts raw global event data into a regional risk score.
 
-Most existing tools are either complex, not farmer-friendly, or require constant high-speed internet.
+Each region receives a score calculated from multiple signals such as conflicts, disasters, market instability, and trade disruptions.
 
-OpenPlant Doctor provides a simple, AI-powered, open-source solution built on MERN architecture.
+Example calculation:
 
-🚀 Core Features
+Risk Score =
+  Conflict Intensity +
+  Disaster Severity +
+  Market Volatility +
+  Trade Disruption
 
-📸 Leaf image upload
+This allows users to quickly understand which regions are experiencing higher levels of instability.
 
-🤖 AI-based disease detection
+Features (MVP)
 
-📊 Severity classification (Mild / Moderate / Severe)
+Interactive world map
 
-🌿 Organic treatment suggestions
+Conflict event visualization
 
-🧪 Chemical treatment suggestions
+Disaster event mapping
 
-🛡 Preventive guidance
+Market volatility indicators
 
-📱 Responsive UI
+Trade disruption tracking
 
-🔓 Open-source and extensible design
+Layer-based filtering
 
-🛠 Tech Stack (MERN)
+Regional risk scoring
+
+Sidebar analytics panel
+
+Modular data ingestion
+
+Tech Stack
 Frontend
 
-React.js
+React
 
-Tailwind CSS (optional)
+Leaflet / MapLibre
 
-Axios (API communication)
+Axios
+
+Recharts
 
 Backend
 
@@ -69,142 +77,118 @@ Node.js
 
 Express.js
 
-Database
+MongoDB
 
-MongoDB (stores treatment data, disease info, user logs)
+Data Layer
 
-AI Integration
+Structured JSON datasets
 
-Python-based ML model (served via REST API)
+Local dataset ingestion
 
-Model: MobileNet / EfficientNet (PlantVillage dataset)
+Modular data adapters
 
-🧠 System Architecture
-Client (React)
-      ↓
-Express API (Node.js)
-      ↓
-MongoDB (Disease & Treatment Data)
-      ↓
-AI Model Service (Python - Inference API)
-Flow:
+Project Structure
+GEOPULSE/
 
-User uploads leaf image via React frontend.
+client/
+ ├── components/
+ ├── pages/
+ ├── services/
+ └── App.jsx
 
-Image is sent to Express backend.
+server/
+ ├── controllers/
+ ├── routes/
+ ├── models/
+ ├── services/
+ │     └── riskEngine.js
+ ├── data/
+ │     ├── conflicts.json
+ │     ├── disasters.json
+ │     ├── markets.json
+ │     └── trade.json
+ └── server.js
 
-Backend forwards image to AI model service.
+README.md
+Data Strategy
 
-AI returns:
+GeoPulse does not depend on live external APIs.
 
-Plant name
+The system can operate using:
 
-Disease class
+Local datasets
 
-Confidence score
+Cached event data
 
-Backend calculates severity level.
+Structured JSON files
 
-MongoDB fetches treatment recommendations.
+This makes the platform suitable for offline environments such as demos, hackathons, or restricted networks.
 
-Results are returned to frontend.
+Future versions can include optional API connectors.
 
-📊 Severity Classification Logic
-Infection %	Severity Level
-0–10%	Mild 🟢
-10–30%	Moderate 🟡
-30%+	Severe 🔴
-📂 Project Structure
-openplant-doctor/
-│
-├── client/                 # React Frontend
-│   ├── src/
-│   └── public/
-│
-├── server/                 # Node + Express Backend
-│   ├── routes/
-│   ├── controllers/
-│   ├── models/
-│   ├── middleware/
-│   └── config/
-│
-├── ai-service/             # Python AI Inference Service
-│   ├── model/
-│   └── app.py
-│
-├── .env
-├── package.json
-└── README.md
-⚙️ Installation Guide
-1️⃣ Clone Repository
-git clone https://github.com/your-username/openplant-doctor.git
-cd openplant-doctor
-2️⃣ Backend Setup
-cd server
-npm install
-npm run dev
+Use Cases
 
-Create a .env file inside /server:
+GeoPulse can be used for:
 
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-AI_SERVICE_URL=http://localhost:8000
-3️⃣ Frontend Setup
-cd client
-npm install
-npm start
-4️⃣ AI Service Setup
-cd ai-service
-pip install -r requirements.txt
-python app.py
-🌍 Impact
+Academic research
 
-Enables early disease detection
+Crisis monitoring
 
-Reduces unnecessary pesticide usage
+Market risk visualization
 
-Improves crop health
+Policy analysis
 
-Supports small and marginal farmers
+Data engineering demonstrations
 
-Promotes open agricultural AI
+Open data projects
 
-🔓 Contributing
+Roadmap
+Phase 1 — MVP
 
-We welcome contributions in:
+Data ingestion layer
 
-Adding new crops & diseases
+Risk scoring engine
 
-Improving model accuracy
+Interactive map with filters
 
-Enhancing UI/UX
+Sidebar analytics panel
 
-Expanding treatment database
+Phase 2 — Improvements
 
-Multilingual support
+Timeline playback
 
-Steps:
+Regional risk history
 
-Fork the repository
+CSV export
 
-Create a new branch
+Risk comparison tools
 
-Commit changes
+Phase 3 — Expansion
 
-Submit a pull request
+Optional live API connectors
 
-🔮 Future Scope
+WebSocket updates
 
-Offline mobile version (ONNX / TensorFlow Lite)
+Event alerts
 
-WhatsApp-based plant diagnosis bot
+Regional summaries
 
-Regional language interface
+Contributing
 
-Real-time outbreak analytics
+Contributions are welcome.
 
-Farmer feedback dataset expansion
+Possible areas of contribution:
 
-📜 License
+New datasets
 
-This project is licensed under the MIT License.
+Visualization improvements
+
+Risk model enhancements
+
+Additional data connectors
+
+UI improvements
+
+License
+
+MIT License
